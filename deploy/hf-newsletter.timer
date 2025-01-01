@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Hugging Face Newsletter every morning
+Requires=hf-newsletter.service
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

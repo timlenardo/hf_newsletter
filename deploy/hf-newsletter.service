@@ -1,0 +1,15 @@
+[Unit]
+Description=Hugging Face Newsletter Service
+After=network.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/workspace/hf_newsletter
+Environment=PYTHONPATH=/workspace/hf_newsletter
+ExecStart=/openhands/poetry/openhands-ai-5O4_aCHf-py3.12/bin/python src/cli.py
+StandardOutput=append:/workspace/hf_newsletter/logs/service.log
+StandardError=append:/workspace/hf_newsletter/logs/service.log
+
+[Install]
+WantedBy=multi-user.target
