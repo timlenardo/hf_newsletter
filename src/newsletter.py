@@ -35,16 +35,10 @@ def fetch_trending_projects(db):
         # Check if model is worth featuring
         if db.is_model_worth_featuring(metrics):
             try:
-                # Get the model card info for fallback description
+                # Get the model description from Hugging Face
                 model_info = api.model_info(model.modelId)
                 card_data = getattr(model_info, 'cardData', {}) or {}
-                fallback_description = card_data.get('model-description', "")
-                
-                # Get description from web search
-                description = get_model_description(
-                    model.modelId,
-                    fallback_description=fallback_description
-                )
+                description = card_data.get('model-description', "No description available")
                 
                 # Format growth metrics for display
                 growth_info = []
