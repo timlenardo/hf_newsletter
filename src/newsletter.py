@@ -5,7 +5,6 @@ from postmarker.core import PostmarkClient
 from dotenv import load_dotenv
 from huggingface_hub import HfApi
 from database import Database
-from model_info import get_model_description
 from email_template import get_email_template
 
 def fetch_trending_projects(db):
